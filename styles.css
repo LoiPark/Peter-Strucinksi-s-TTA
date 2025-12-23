@@ -1530,3 +1530,64 @@ body {
     }
 }
 
+/* ========================
+   LANDSCAPE ORIENTATION FIX
+   ======================== */
+
+@media (max-width: 992px) and (orientation: landscape) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-container {
+        height: 60px;
+        padding: 0.5rem 1rem;
+        align-items: center;
+    }
+    
+    .logo {
+        align-items: center;
+    }
+    
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .hamburger {
+        gap: 3px;
+    }
+    
+    .hamburger span {
+        width: 22px;
+        height: 2px;
+    }
+    
+    .nav-menu {
+        top: 60px;
+        max-height: calc(100vh - 60px - 80px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-menu li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav-menu a {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .nav-buttons.active {
+        top: auto;
+        bottom: 0;
+        position: fixed;
+        margin-top: 0;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-buttons .btn-primary {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
