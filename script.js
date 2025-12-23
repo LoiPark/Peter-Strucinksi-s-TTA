@@ -41,15 +41,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navButtons = document.querySelector('.nav-buttons');
-const navbar = document.querySelector('.navbar');
 
 if (hamburger && navMenu) {
     // Toggle menu when hamburger is clicked
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
-        if (navbar) {
-            navbar.classList.toggle('mobile-menu-open');
+        if (navButtons) {
+            navButtons.classList.toggle('active');
         }
     });
     
@@ -58,19 +57,19 @@ if (hamburger && navMenu) {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
-            if (navbar) {
-                navbar.classList.remove('mobile-menu-open');
+            if (navButtons) {
+                navButtons.classList.remove('active');
             }
         });
     });
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && !navButtons.contains(e.target)) {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && (!navButtons || !navButtons.contains(e.target))) {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
-            if (navbar) {
-                navbar.classList.remove('mobile-menu-open');
+            if (navButtons) {
+                navButtons.classList.remove('active');
             }
         }
     });
@@ -80,9 +79,7 @@ if (hamburger && navMenu) {
         navButtons.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
-            if (navbar) {
-                navbar.classList.remove('mobile-menu-open');
-            }
+            navButtons.classList.remove('active');
         });
     }
 }
