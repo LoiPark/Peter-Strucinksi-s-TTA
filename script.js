@@ -262,20 +262,26 @@ document.querySelectorAll('.service-card, .timeline-item, .stat-card, .about-tex
 
 const heroTestimonials = [
     {
-        text: '"Coach Peter\'s training program transformed my game. His technical expertise and motivational approach helped me win my first national championship."',
-        author: 'Michael Chen',
-        date: 'December 15, 2024'
+        text: '"In just 2 years of training with Coach Peter, I\'ve gone from USATT Rating 1048 to 1948! I highly recommend him to any serious players looking to improve fast!"',
+        author: 'Loi Park',
+        date: 'USATT Rating 1948'
     },
     {
-        text: '"The personalized training plan made all the difference. I improved my serves and backhand significantly in just three months."',
-        author: 'Emma Rodriguez',
-        date: 'November 28, 2024'
+        text: '"He cares about his student\'s needs. He goes above and beyond to craft a tailered approach that works best for every individual player."',
+        author: 'Vivian Wong',
+        date: 'USATT Rating 1588'
     },
     {
-        text: '"As a beginner, I felt welcomed and supported. Coach Peter broke down complex techniques into easy steps. Highly recommend!"',
-        author: 'James Wilson',
-        date: 'December 10, 2024'
+        text: '"I came to Peter Strucinski\'s TTA stuck at 1700 USATT rating and now I have won numerous tournaments and improved my rating to 1993. His structured training program and supportive environment made all the difference."',
+        author: 'Jun Ou',
+        date: 'USATT Rating 1993'
+    },
+    {
+        text: '"Every session with coach Peter, I learn something new and improve my game. He is a great coach and I highly recommend him to anyone looking to improve their game."',
+        author: 'Julia Leong',
+        date: 'USATT Rating 1250'
     }
+
 ];
 
 let currentHeroTestimonial = 0;
