@@ -134,6 +134,7 @@ body {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .hamburger span {
@@ -142,6 +143,18 @@ body {
     background: var(--light-text);
     border-radius: 3px;
     transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* ========================
@@ -1283,12 +1296,79 @@ body {
 }
 
 @media (max-width: 992px) {
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
     .nav-container {
         padding: 0.75rem 1.25rem;
+        flex-wrap: wrap;
     }
     
     .nav-menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--darker-bg);
+        flex-direction: column;
+        padding: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-menu a {
+        padding: 1.2rem 1.5rem;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .nav-menu a:hover {
+        background: rgba(52, 127, 254, 0.1);
+    }
+    
+    .nav-buttons {
+        display: none;
+    }
+    
+    .navbar.mobile-menu-open .nav-buttons {
+        display: block;
+        width: 100%;
+        order: 3;
+        padding: 1rem 0;
+        margin-top: 470px;
+        position: absolute;
+        background: var(--darker-bg);
+        left: 0;
+        right: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        z-index: 998;
+    }
+    
+    .navbar.mobile-menu-open .nav-buttons .btn-primary {
+        display: block;
+        width: calc(100% - 3rem);
+        margin: 0 1.5rem;
+        text-align: center;
+        padding: 1rem 1.5rem;
     }
     
     .hamburger {
