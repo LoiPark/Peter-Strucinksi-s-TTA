@@ -1,4 +1,23 @@
 // ========================
+// SCROLL TO TOP ON PAGE LOAD
+// ========================
+
+window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+});
+
+// Force scroll to top on page load/refresh
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 0);
+});
+
+// ========================
 // SMOOTH SCROLLING
 // ========================
 
@@ -48,16 +67,7 @@ let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 100) {
-        navbar.style.padding = '1rem 0';
-        navContainer.style.background = 'rgba(10, 10, 21, 0.98)';
-        navContainer.style.padding = '0.6rem 1.25rem';
-    } else {
-        navbar.style.padding = '1.5rem 0';
-        navContainer.style.background = 'rgba(10, 10, 21, 0.95)';
-        navContainer.style.padding = '0.75rem 1.5rem';
-    }
-    
+   
     lastScroll = currentScroll;
 });
 
@@ -199,36 +209,98 @@ faqQuestions.forEach(question => {
 // Contact Form
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const formData = {
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            service: document.getElementById('service').value,
-            message: document.getElementById('message').value
-        };
+        // Get form values
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value.trim();
         
-        // Simple validation
-        if (!formData.firstName || !formData.lastName || !formData.email || !formData.service || !formData.message) {
-            alert('Please fill in all required fields');
+        // Validation: Check all required fields are filled
+        if (!firstName || !lastName || !email || !service || !message) {
+            alert('Please fill in all required fields.');
             return;
         }
         
-        // Email validation
+        // Validation: Email must contain @
+        if (!email.includes('@')) {
+            alert('Please enter a valid email address containing @');
+            return;
+        }
+        
+        // Validation: Email format check (more thorough)
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            alert('Please enter a valid email address');
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
             return;
         }
         
-        // Show success message
-        alert(`Thank you, ${formData.firstName}! Your message has been sent. We'll get back to you soon!`);
-        contactForm.reset();
+        // Validation: Phone number must be 10 numerical characters
+        const phoneDigits = phone.replace(/\D/g, ''); // Remove non-numeric characters
+        if (phoneDigits.length !== 10) {
+            alert('Please enter a valid 10-digit phone number.');
+            return;
+        }
+        
+        // Validation: Service must be selected
+        if (service === '' || !service) {
+            alert('Please select a service you are interested in.');
+            return;
+        }
+        
+        const formData = new FormData(contactForm);
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Clear the form
+                contactForm.reset();
+                
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'form-success-message';
+                successMessage.textContent = 'Thank you! Your message has been sent successfully. We will get back to you soon!';
+                
+                // Insert success message before the form
+                contactForm.parentElement.insertBefore(successMessage, contactForm);
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5000);
+                
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Show error message
+            alert('Oops! There was a problem sending your message. Please try again or contact us directly.');
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
     });
 }
+
 
 // ========================
 // SCROLL ANIMATIONS

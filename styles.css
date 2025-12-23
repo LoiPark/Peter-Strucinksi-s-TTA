@@ -621,8 +621,16 @@ body {
 
 .service-card h3 {
     font-size: 1.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #000000;
+    padding: 0 0.5rem;
+}
+
+.service-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem !important;
     padding: 0 0.5rem;
 }
 
@@ -1040,10 +1048,136 @@ body {
     gap: 1.5rem;
 }
 
+.form-success-message {
+    background: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+}
+
+/* ========================
+   TERMS OF SERVICE PAGE
+   ======================== */
+
+.terms-section {
+    padding: 120px 0 80px;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.terms-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.terms-content h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.last-updated {
+    text-align: center;
+    color: #666666;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.terms-content .intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333333;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.terms-section-block {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+.terms-section-block h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.terms-section-block h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.terms-section-block p {
+    color: #333333;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.terms-section-block p:last-child {
+    margin-bottom: 0;
+}
+
+.terms-section-block ul {
+    list-style: disc;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    color: #333333;
+}
+
+.terms-section-block ul li {
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.terms-section-block .contact-info {
+    padding: 1rem;
+    background: #f8f8f8;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 3rem;
 }
 
 /* ========================
