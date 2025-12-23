@@ -10,7 +10,7 @@
 
 :root {
     /* Colors */
-    --primary-color: #347ffe;
+    --primary-color: #347ffe; /* #347ffe */
     --secondary-color: #1a1a2e;
     --dark-bg: #0f0f1e;
     --darker-bg: #0a0a15;
@@ -1309,8 +1309,8 @@ body {
     
     .nav-menu {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 80px;
         left: 0;
         right: 0;
         background: var(--darker-bg);
@@ -1346,20 +1346,20 @@ body {
     
     .nav-buttons {
         display: none;
-        width: 100%;
-        position: absolute;
-        top: calc(100% + 380px);
-        left: 0;
-        right: 0;
-        background: var(--darker-bg);
-        padding: 1rem 1.5rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        z-index: 998;
     }
     
     .nav-buttons.active {
         display: block;
+        width: 100%;
+        position: fixed;
+        top: calc(80px + 6 * 70px);
+        left: 0;
+        right: 0;
+        background: var(--darker-bg);
+        padding: 1rem 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
     }
     
     .nav-buttons .btn-primary {
