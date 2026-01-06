@@ -1,0 +1,62 @@
+/* (reset, :root vars, typography, container) */
+
+/* ========================
+   CSS RESET & BASE STYLES
+   ======================== */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --primary-color: #347ffe; /* #347ffe */
+    --secondary-color: #1a1a2e;
+    --dark-bg: #0f0f1e;
+    --darker-bg: #0a0a15;
+    --light-text: #ffffff;
+    --gray-text: #a0a0b0;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-bg-hover: rgba(255, 255, 255, 0.08);
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --transition: all 0.3s ease;
+
+     /* ===== Responsive sizing tokens ===== */
+
+    /* Section spacing */
+    --section-padding-y: clamp(72px, 8vw, 120px);
+
+    /* Headings */
+    --hero-title-size: clamp(2.1rem, 4.5vw, 4rem);
+    --section-title-size: clamp(1.75rem, 3.2vw, 3rem);
+    --subheading-size: clamp(1.3rem, 2.2vw, 2rem);
+
+    /* Body text */
+    --body-text-lg: clamp(1rem, 1.2vw, 1.15rem);
+    --body-text: clamp(0.95rem, 1vw, 1.05rem);
+
+    /* Layout */
+    --container-padding-x: clamp(1rem, 4vw, 2rem);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-inline: var(--container-padding-x);
+}

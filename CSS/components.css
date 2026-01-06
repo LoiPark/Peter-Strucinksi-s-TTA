@@ -1,0 +1,104 @@
+/*(buttons, cards, forms, slider, etc.) */
+
+/* ========================
+   BUTTONS
+   ======================== */
+
+   .btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    padding: 0.4rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-family);
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(52,127,254);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--light-text);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-family);
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-transparent {
+    background: transparent;
+    color: var(--light-text);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-family);
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.btn-transparent:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--light-text);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--light-text);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-family);
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary.large,
+.btn-transparent.large {
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+}
+
+.btn-primary.full-width {
+    width: 100%;
+}
